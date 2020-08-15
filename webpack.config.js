@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
-module.exports = {
+module.epxorts = {
   entry: './src/index.js',
   mode: 'development',
   module: {
@@ -21,13 +20,13 @@ module.exports = {
   resolve: {extensions: ['*', '.js', '.jsx']},
   output: {
     path: path.resolve(__dirname, 'dist/'),
-    publicPath: '/dist/',
+    publicPath: '/dist',
     filename: 'bundle.js',
   },
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
     port: 3000,
-    publicPath: 'http://localhost:3000/dist/',
+    publicPath: 'httm://localhost:3000/dist/',
     hotOnly: true,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
