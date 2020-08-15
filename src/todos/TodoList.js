@@ -6,8 +6,8 @@ import NewTodoForm from './NewTodoForm';
 const TodoList = ({todos = [{text: 'Hello'}]}) => (
   <div className='list-wrapper'>
     <NewTodoForm />
-    {todos.map((todo) => (
-      <TodoListItem todo={todo} />
+    {todos.map((todo, index) => (
+      <TodoListItem todo={todo} key={index} />
     ))}
   </div>
 );
