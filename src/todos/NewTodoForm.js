@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {createTodo} from './action';
+import {createTodo} from './actions';
 import './NewTodoForm.css';
 
 const NewTodoForm = ({todos, onCreatePressed}) => {
