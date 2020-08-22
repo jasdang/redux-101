@@ -1,4 +1,5 @@
 import {
+  createTodo,
   loadTodosInProgress,
   loadTodosSuccess,
   loadTodosFailure,
@@ -19,4 +20,24 @@ export const loadTodos = () => async (dispatch, getState) => {
 
 export const displayAlert = (text) => () => {
   alert(text);
+};
+
+export const addTodoRequest = (text) => async (dispatch, getState) => {
+  try {
+    const body = JSON.stringify({text});
+    console.log(body);
+
+    const response = await fetch('http://localhost:8080/todos', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'post',
+      body,
+    });
+    const todo = await response.json();
+    console.log(todo);
+    dispatch(createTodo(todo));
+  } catch (e) {
+    dispatch(displayAlert(e));
+  }
 };
