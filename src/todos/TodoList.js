@@ -1,10 +1,13 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import './TodoList.css';
-import {loadTodos, removeTodoRequest} from './thunks';
+import {
+  loadTodos,
+  removeTodoRequest,
+  markTodoAsCompletedRequest,
+} from './thunks';
 import TodoListItem from './TodoListItem';
 import NewTodoForm from './NewTodoForm';
-import {markTodoAsCompleted} from './actions';
 
 const TodoList = ({
   isLoading,
@@ -30,6 +33,7 @@ const TodoList = ({
       ))}
     </div>
   );
+  console.log(todos);
   return isLoading ? loadingMessage : content;
 };
 
@@ -41,7 +45,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   startLoadingTodos: () => dispatch(loadTodos()),
   onRemovePressed: (id) => dispatch(removeTodoRequest(id)),
-  onCompletePressed: (text) => dispatch(markTodoAsCompleted(text)),
+  onCompletePressed: (id) => dispatch(markTodoAsCompletedRequest(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
