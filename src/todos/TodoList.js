@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import './TodoList.css';
+import {getTodos, getTodosLoading} from './selectors';
 import {
   loadTodos,
   removeTodoRequest,
@@ -38,8 +39,8 @@ const TodoList = ({
 };
 
 const mapStateToProps = (state) => ({
-  isLoading: state.isLoading,
-  todos: state.todos,
+  isLoading: getTodosLoading(state),
+  todos: getTodos(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
