@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {addTodoRequest} from './thunks';
 import {getTodos} from './selectors';
-import './NewTodoForm.css';
 import styled from 'styled-components';
 
 const FormContainer = styled.div`

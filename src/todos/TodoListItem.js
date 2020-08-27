@@ -1,5 +1,4 @@
 import React from 'react';
-import './TodoListItem.css';
 import styled from 'styled-components';
 
 const TodoItemContainer = styled.div`
