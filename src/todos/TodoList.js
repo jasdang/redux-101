@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import './TodoList.css';
 import {
-  getTodos,
   getTodosLoading,
   getCompletedTodos,
   getIncompleteTodos,
@@ -14,6 +13,12 @@ import {
 } from './thunks';
 import TodoListItem from './TodoListItem';
 import NewTodoForm from './NewTodoForm';
+import styled from 'styled-components';
+
+const BigRedText = styled.div`
+  font-size: 48px;
+  color: #ff0000;
+`;
 
 const TodoList = ({
   isLoading,
@@ -29,6 +34,7 @@ const TodoList = ({
   const loadingMessage = <div>Loading todos...</div>;
   const content = (
     <div className='list-wrapper'>
+      <BigRedText>Hello</BigRedText>
       <NewTodoForm />
       <h3>Incomplete Todos:</h3>
       {incompletedTodos.map((todo, index) => (
